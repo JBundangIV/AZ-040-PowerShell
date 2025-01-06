@@ -1,3 +1,4 @@
+#Create Department folders
 $FilePath= "E:\Local\Department.txt"
 $BaseDir= "E:\Local\Shared"
 
