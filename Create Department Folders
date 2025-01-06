@@ -1,1 +1,15 @@
+$FilePath= "E:\Local\Department.txt"
+$BaseDir= "E:\Local\Shared"
 
+$FolderNames= Get-Content -Path $FilePath
+
+foreach($FolderName in $FolderNames) {
+    $FolderPath = "$BaseDir\$FolderName"
+    if ((Test-Path -Path FolderPath) -eq $false) {
+        New-Item -Path $FolderPath -ItemType Directory
+        Write-host "Created Folder: $FolderName"
+    } else {
+        Write-Host "Folder already exists: $FolderName"
+
+    }
+} 
