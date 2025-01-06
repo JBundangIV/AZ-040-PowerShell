@@ -10,7 +10,6 @@ foreach($FolderName in $FolderNames) {
         New-Item -Path $FolderPath -ItemType Directory
         Write-host "Created Folder: $FolderName"
     } else {
-        Write-Host "Folder already exists: $FolderName"
-
+        Write-Output "Folder already exists: $FolderName"
     }
 } 
