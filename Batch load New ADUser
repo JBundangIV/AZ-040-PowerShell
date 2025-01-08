@@ -1,0 +1,20 @@
+Import-Module ActiveDirectory
+
+Import-Csv -Path E:\Local\New-ADUser\ADUser.csv
+
+$Users = Import-Csv -Path E:\Local\New-ADUser\ADUser.csv
+
+foreach($user in $Users) {
+    $FirstName = $user.FirstName
+    $LastName = $user.LastName
+    $UserName = $user.UserName
+    $Password = $user.Password
+    $OU = $user.OU
+    $Department = $user.Department
+    $Title = $user.Title
+    $Email = $user.Email
+     
+}
+
+{New-ADuser -Name $FirstName -Surname $LastName -UserPrincipalName - $UserName -AccountPassword (ConvertTo-SecureString $Password -AsPlainText -Force) -Organization $OU -Department $Department -Title $Title -EmailAddress $Email -Enabled $true
+}
