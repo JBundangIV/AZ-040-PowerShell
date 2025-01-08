@@ -10,9 +10,8 @@ foreach($user in $Users) {
     $UserName = $user.UserName
     $Password = $user.Password
     $OU = $user.OU
-    $Department = $user.Department
     $Title = $user.Title
     $Email = $user.Email
-     
-    New-ADuser -Name $FirstName -Surname $LastName -UserPrincipalName - $UserName -AccountPassword (ConvertTo-SecureString $Password -AsPlainText -Force) -Organization $OU -Department $Department -Title $Title -EmailAddress $Email -Enabled $true
+
+    New-ADuser -Name $FirstName$LastName -GivenName $FirstName -Surname $LastName -UserPrincipalName $UserName -AccountPassword (ConvertTo-SecureString $Password -AsPlainText -Force) -Path $OU  -Title $Title -EmailAddress $Email -Enabled $true
 }
